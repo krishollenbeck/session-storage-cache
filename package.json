@@ -1,16 +1,16 @@
 {
-  "name": "lscache",
-  "title": "lscache",
-  "description": "A simple library that emulates memcache functions using HTML5 localStorage",
-  "author": "Pamela Fox",
+  "name": "sscahce",
+  "title": "sscache",
+  "description": "A simple library that emulates memcache functions using HTML5 sessionStorage",
+  "author": "Kris Hollenbeck & Pamela Fox",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pamelafox/lscache.git"
+    "url": "https://github.com/krishollenbeck/sscache.git"
   },
-  "homepage": "http://github.com/pamelafox/lscache",
-  "main": "lscache",
-  "version": "1.0.7",
+  "homepage": "https://github.com/krishollenbeck/sscache",
+  "main": "sscache",
+  "version": "0.0.1",
   "devDependencies": {
     "grunt-contrib-qunit": "1.3.x",
     "grunt": "1.0.x",

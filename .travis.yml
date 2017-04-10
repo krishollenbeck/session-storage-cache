@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - stable
+  - "iojs"
+  - "7"
+  - "6"
+  - "5"
+  - "4"
+script:
+  - grunt test

@@ -1,8 +1,8 @@
 {
-	"name": "lscache",
-	"version": "1.0.7",
-	"homepage": "https://github.com/pamelafox/lscache",
-	"main": ["lscache.min.js", "lscache.js"],
+	"name": "sscache",
+	"version": "0.0.1",
+	"homepage": "https://github.com/krishollenbeck/sscache",
+	"main": ["sscache.min.js", "sscache.js"],
 	"ignore": [
 		"demo",
 		"tests",
@@ -10,9 +10,9 @@
 		"package.json"
 	],
 	"keywords": [
-		"localstorage",
-		"local",
+		"sessionstorage",
+		"session",
 		"storage",
-		"lscache"
+		"sscache"
 	]
 }
