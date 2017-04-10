@@ -83,7 +83,7 @@ You can remove only expired items from the cache entirely with `sscache.flushExp
 sscache.flushExpired();
 ```
 
-You can also check if local storage is supported in the current browser with `sscache.supported()`:
+You can also check if session storage is supported in the current browser with `sscache.supported()`:
 
 ```js
 if (!sscache.supported()) {
