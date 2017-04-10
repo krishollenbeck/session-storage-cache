@@ -1,6 +1,6 @@
 {
-  "name": "sscahce",
-  "title": "sscache",
+  "name": "session-storage-cache",
+  "title": "Session storage cache (sscache) a fork of lscache",
   "description": "A simple library that emulates memcache functions using HTML5 sessionStorage",
   "author": "Kris Hollenbeck & Pamela Fox",
   "license": "Apache-2.0",
