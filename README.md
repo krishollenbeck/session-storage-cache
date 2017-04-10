@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/krishollenbeck/session-storage-cache.svg?branch=master)](https://travis-ci.org/krishollenbeck/session-storage-cache)
+
 sscache
 ===============================
 This is a simple library that emulates `memcache` functions using HTML5 `localStorage`, so that you can cache data on the client
