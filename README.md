@@ -129,7 +129,6 @@ Real-World Usage
 ----------
 This library was originally developed with the use case of caching results of JSON API queries
 to speed up my webapps and give them better protection against flaky APIs.
-(More on that in this [blog post](http://blog.pamelafox.org/2010/10/sscache-localstorage-based-memcache.html))
 
 For example, [RageTube](https://github.com/pamelafox/ragetube) uses `sscache` to fetch Youtube API results for 10 minutes:
 
@@ -183,7 +182,7 @@ function initBuckets() {
 Browser Support
 ----------------
 
-The `sscache` library should work in all browsers where `localStorage` is supported.
+The `sscache` library should work in all browsers where `sessionStorage` is supported.
 A list of those is here:
 http://www.quirksmode.org/dom/html5.html
 
