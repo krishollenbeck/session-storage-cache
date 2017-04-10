@@ -1,6 +1,6 @@
 {
 	"name": "sscache",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"homepage": "https://github.com/krishollenbeck/sscache",
 	"main": ["sscache.min.js", "sscache.js"],
 	"ignore": [
