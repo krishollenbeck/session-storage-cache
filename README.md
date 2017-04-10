@@ -121,9 +121,6 @@ sscache.set('path', '...', 2);
 sscache.flush(); //only removes 'path' which was set in the lib bucket
 ```
 
-For more live examples, play around with the demo here:
-http://pamelafox.github.com/sscache/demo.html
-
 
 Real-World Usage
 ----------
