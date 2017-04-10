@@ -7,15 +7,15 @@ var startTests = function (sscache) {
 
   QUnit.module('sscache', {
     setup: function() {
-      // Reset localStorage before each test
+      // Reset sessionStorage before each test
       try {
-        localStorage.clear();
+        sessionStorage.clear();
       } catch(e) {}
     },
     teardown: function() {
-      // Reset localStorage after each test
+      // Reset sessionStorage after each test
       try {
-        localStorage.clear();
+        sessionStorage.clear();
       } catch(e) {}
       window.console = originalConsole;
       sscache.enableWarnings(false);
@@ -67,12 +67,12 @@ var startTests = function (sscache) {
     });
 
     test('Testing flush()', function() {
-      localStorage.setItem('outside-cache', 'not part of sscache');
+      sessionStorage.setItem('outside-cache', 'not part of sscache');
       var key = 'thekey';
       sscache.set(key, 'bla', 100);
       sscache.flush();
       equal(sscache.get(key), null, 'We expect flushed value to be null');
-      equal(localStorage.getItem('outside-cache'), 'not part of sscache', 'We expect localStorage value to still persist');
+      equal(sessionStorage.getItem('outside-cache'), 'not part of sscache', 'We expect sessionStorage value to still persist');
     });
 
     test('Testing setBucket()', function() {
@@ -102,13 +102,13 @@ var startTests = function (sscache) {
       var num = 0;
       while(num < 10000) {
         try {
-          localStorage.setItem("key" + num, longString);
+          sessionStorage.setItem("key" + num, longString);
           num++;
         } catch (e) {
           break;
         }
       }
-      localStorage.clear();
+      sessionStorage.clear();
 
       for (var i = 0; i <= num; i++) {
         sscache.set("key" + i, longString);
@@ -129,20 +129,20 @@ var startTests = function (sscache) {
     test('Testing quota exceeding', function() {
       var key = 'thekey';
 
-      // Figure out this browser's localStorage limit -
+      // Figure out this browser's sessionStorage limit -
       // Chrome is around 2.6 mil, for example
       var stringLength = 10000;
       var longString = (new Array(stringLength+1)).join('s');
       var num = 0;
       while(num < 10000) {
         try {
-          localStorage.setItem(key + num, longString);
+          sessionStorage.setItem(key + num, longString);
           num++;
         } catch (e) {
           break;
         }
       }
-      localStorage.clear();
+      sessionStorage.clear();
       // Now add enough to go over the limit
       var approxLimit = num * stringLength;
       var numKeys = Math.ceil(approxLimit/(stringLength+8)) + 1;
@@ -165,7 +165,7 @@ var startTests = function (sscache) {
       equal(sscache.get(key + 'long'), veryLongString, 'We expect long string to get stored');
 
       // Try the same with no expiry times
-      localStorage.clear();
+      sessionStorage.clear();
       for (i = 0; i <= numKeys; i++) {
         currentKey = key + i;
         sscache.set(currentKey, longString);
@@ -206,7 +206,7 @@ var startTests = function (sscache) {
     });
 
     asyncTest('Testing flush(expired)', function() {
-      localStorage.setItem('outside-cache', 'not part of sscache');
+      sessionStorage.setItem('outside-cache', 'not part of sscache');
       var unexpiredKey = 'unexpiredKey';
       var expiredKey = 'expiredKey';
       sscache.set(unexpiredKey, 'bla', 1);
@@ -216,7 +216,7 @@ var startTests = function (sscache) {
         sscache.flushExpired();
         equal(sscache.get(unexpiredKey), 'bla', 'We expect unexpired value to survive flush');
         equal(sscache.get(expiredKey), null, 'We expect expired value to be flushed');
-        equal(localStorage.getItem('outside-cache'), 'not part of sscache', 'We expect localStorage value to still persist');
+        equal(sessionStorage.getItem('outside-cache'), 'not part of sscache', 'We expect sessionStorage value to still persist');
         start();
       }, 1500);
     });

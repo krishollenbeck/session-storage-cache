@@ -25,11 +25,11 @@ function run(id) {
  
  <h1>sscache</h1>
  
- <p>The sscache library is a simple library that emulates memcache functions using HTML5 localStorage, so that you can store items with an expiration date. These demos show its current functionality - set, get, remove.
+ <p>The sscache library is a simple library that emulates memcache functions using HTML5 sessionStorage, so that you can store items with an expiration date. These demos show its current functionality - set, get, remove.
  </p>
  
  <p><b>Set memcache entries (most with expiration of 2 minutes):</b><br>
- (Check "Storage->Local Storage" in Chrome Dev Tools to see them stored.)
+ (Check "Storage->Session Storage" in Chrome Dev Tools to see them stored.)
  </p>
  <textarea id="set">
  sscache.set('forever', 'And Ever');

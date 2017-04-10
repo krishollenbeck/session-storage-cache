@@ -2,8 +2,8 @@
 
 sscache
 ===============================
-This is a simple library that emulates `memcache` functions using HTML5 `localStorage`, so that you can cache data on the client
-and associate an expiration time with each piece of data. If the `localStorage` limit (~5MB) is exceeded, it tries to create space by removing the items that are closest to expiring anyway. If `localStorage` is not available at all in the browser, the library degrades by simply not caching and all cache requests return null.
+This is a simple library that emulates `memcache` functions using HTML5 `sessionStorage`, so that you can cache data on the client
+and associate an expiration time with each piece of data. If the `sessionStorage` limit (~5MB) is exceeded, it tries to create space by removing the items that are closest to expiring anyway. If `sessionStorage` is not available at all in the browser, the library degrades by simply not caching and all cache requests return null.
 
 Methods
 -------
@@ -13,7 +13,7 @@ The library exposes 5 methods: `set()`, `get()`, `remove()`, `flush()`, and `set
 * * *
 
 ### sscache.set
-Stores the value in localStorage. Expires after specified number of minutes.
+Stores the value in sessionStorage. Expires after specified number of minutes.
 #### Arguments
 1. `key` (**string**)
 2. `value` (**Object|string**)
@@ -22,7 +22,7 @@ Stores the value in localStorage. Expires after specified number of minutes.
 * * *
 
 ### sscache.get
-Retrieves specified value from localStorage, if not expired.
+Retrieves specified value from sessionStorage, if not expired.
 #### Arguments
 1. `key` (**string**)
 
@@ -32,14 +32,14 @@ Retrieves specified value from localStorage, if not expired.
 * * *
 
 ### sscache.remove
-Removes a value from localStorage.
+Removes a value from sessionStorage.
 #### Arguments
 1. `key` (**string**)
 
 * * *
 
 ### sscache.flush
-Removes all sscache items from localStorage without affecting other data.
+Removes all sscache items from sessionStorage without affecting other data.
 
 * * *
 
@@ -87,7 +87,7 @@ You can also check if local storage is supported in the current browser with `ss
 
 ```js
 if (!sscache.supported()) {
-  alert('Local storage is unsupported in this browser');
+  alert('Session storage is unsupported in this browser');
   return;
 }
 ```
@@ -156,7 +156,7 @@ function fetchJSON() {
 }
 ```
 
-It does not have to be used for only expiration-based caching, however. It can also be used as just a wrapper for `localStorage`, as it provides the benefit of handling JS object (de-)serialization.
+It does not have to be used for only expiration-based caching, however. It can also be used as just a wrapper for `sessionStorage`, as it provides the benefit of handling JS object (de-)serialization.
 
 For example, the [QuizCards](https://github.com/pamelafox/chrome-cards) Chrome extensions use `sscache`
 to store the user statistics for each user bucket, and those stats are an array
